@@ -1,0 +1,244 @@
+/* Users */
+
+.avatar-with-info
+  &.three-lines
+    border-top: none
+    .text
+      width: 140px
+      .info
+        width: 140px
+        padding: 1px 0 0 0
+        line-height: 1.3em
+        a
+          display: block
+          width: 100%
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+          &.actor
+            font-size: $font-size
+          &.secondary
+            font-size: 12px
+            color: $dark-grey
+          &.tertiary
+            font-size: 12px
+            color: $action-grey
+  &.two-lines
+    border-top: none
+    .text
+      width: 180px
+      .info
+        width: 180px
+        .actor
+          font-size: $font-size
+        .break
+          margin: 4px 0 0 0
+          display: block
+        .members
+          color: $action-grey
+          padding: 0 0 0 6px
+
+  &.avatar-small
+    &.two-lines
+      min-height: 30px
+
+      .avatar
+        width: 30px
+        height: 30px
+        img
+          width: 30px
+          height: 30px
+
+      .text
+        height: 30px
+        line-height: 14px
+
+        .info
+          .actor
+            font-size: 14px
+            line-height: 14px
+          .break
+            font-size: 12px
+            margin: 2px 0 0 0
+
+.avatar-with-info
+  min-height: 50px
+  overflow: hidden
+  border-top: 1px solid rgba(34, 34, 34, 0.1)
+
+  &:first-child
+    border-top: 0px solid black
+
+  &.unread
+    background-color: #e5f5fc
+
+  &.large
+    min-height: 100px
+    .text
+      height: 100px
+
+  &.vertically
+    .text
+      display: table
+      .info
+        display: table-cell
+        vertical-align: middle
+
+  // Establish positioning
+  .avatar
+    display: block
+    position: relative
+    float: left
+
+  .text
+    display: block
+    position: relative
+    float: left
+
+  .photo, .follow:not(.mini_follow)
+    display: block
+    position: relative
+    float: right
+
+  // Sizing of the elements
+  .avatar, .photo
+    width: 50px
+    height: 50px
+    margin: 10px
+
+    img
+      width: 50px
+      height: 50px
+
+  .follow:not(.mini_follow)
+    min-width: 50px
+    height: 24px
+    line-height: 24px
+    margin: 23px 10px
+
+  .text
+    width: 200px
+    height: 50px
+    margin: 10px 0
+    &.full
+      width: 100%
+      padding: 10px 20px
+
+  // Outer element styling
+  .text
+    font-size: 13px
+    line-height: 16px
+
+  .follow:not(.mini_follow)
+    padding: 0 7px
+    border-radius: 3px
+    background-color: $action-blue
+    color: #fff
+    font-size: 12px
+    font-weight: normal
+    text-align: center
+    transition: background-color 0.15s ease-in-out
+    &:hover
+      background-color: $action-blue-hover
+
+  .avatar, .photo
+    img
+      border-radius: 3px
+      transition: 0.15s all
+
+    &.number
+      overflow: hidden
+      line-height: 48px
+      font-size: 18px
+      color: white
+      font-weight: bold
+      text-align: center
+      background-color: $action-blue
+      border-radius: 3px
+
+      &:hover
+        background-color: $action-blue-hover
+  .text
+    .info
+      clear: both
+      h3
+        padding: 0 20px 20px
+        margin: 0
+        font-size: 24px
+        font-weight: normal
+        line-height: 1.3em
+      p
+        margin: 0
+        padding: 0 0 20px
+        font-size: 14px
+        line-height: 1.3em
+    a.target, a.actor
+      color: $dark-grey
+      font-weight: bold
+      &:hover
+        color: $action-blue-hover
+    .timestamp
+      display: block
+      font-size: 12px
+      color: $medium-grey
+  .avatar, .photo
+    opacity: 1
+    transition: opacity 0.15s ease-in-out
+    &:hover
+      opacity: 0.9
+    &.number
+      .count
+        position: relative
+        display: block
+        top: 0
+        transition: all 0.15s ease-in-out
+      .expand
+        position: relative
+        display: block
+        top: -32px
+        line-height: 46px
+        font-size: 24px
+        opacity: 0
+        transition: all 0.15s ease-in-out
+        transform-origin: 50% 50%
+        .plus:before
+          display: inline-block
+          content: " "
+          width: 0
+          height: 0
+          border-left: 8px solid transparent
+          border-right: 8px solid transparent
+          border-top: 8px solid white
+          transition: transform 0.15s ease-in-out
+      &.open
+        .expand
+          .plus:before
+            transform: rotate(180deg)
+      &:hover
+        .count
+          top: -15px
+          opacity: 0
+        .expand
+          top: -50px
+          opacity: 1
+
+/* Follow button */
+.avatar-with-info
+  &.following
+    .follow
+      display: none
+    .following
+      display: inline-block
+  &.self
+    .follow
+      display: none
+    .following
+      display: none
+    .self
+      display: inline-block
+
+  .following
+    display: none
+  .self
+    display: none
+    color: $action-grey

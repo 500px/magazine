@@ -1,0 +1,13 @@
+---
+title: Pixels Magazine
+description: Pixels Magazine is a digital publication that celebrates the wonderful people at 500px. The individual pixels that contributes to our shared mission.
+---
+
+.wrapper
+  - data.issues.issues.each do |issue|
+    %a.issue{:class => issue['id'], :href => "#", :target => "_blank", :style => "background-image: url('/images/issues/#{issue['id']}/cover.jpg')"}
+      .bottom
+        %span.pixels_name
+          Pixels Magazine
+        %span.date
+          August 2015

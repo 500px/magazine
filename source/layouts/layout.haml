@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+    / Always force latest IE rendering engine or request Chrome Frame
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}/
+    %meta{:name => "description", :content => current_page.data.description }
+    %meta{property: "og:type", content: "website"}
+    %meta{property: "og:title", :content => current_page.data.title }
+    %meta{property: "og:description", :content => current_page.data.description }
+    %meta{property: "og:url", content: "http://pixelsmag.com"}
+    %meta{property: "og:image", content: "http://pixelsmag.com/images/og.jpg"}
+    %meta{property: "og:image:type", content: "image/jpeg"}
+
+    %meta{:content => "summary_large_image", :name => "twitter:card"}/
+    %meta{:content => "@500px", :name => "twitter:site"}/
+    %meta{:content => "@500px", :name => "twitter:creator"}/
+    %meta{:content => "Pixels Magazine", :name => "twitter:title"}/
+    %meta{:content => "Pixels Magazine is a digital publication that celebrates the wonderful people at 500px. The individual pixels that contributes to our shared mission."}/
+    %meta{:content => "http://pixelsmag.com/images/og.jpg", :name => "twitter:image"}/
+
+    %title= current_page.data.title
+    %script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")
+
+    / Use page specific stylesheet
+    / = stylesheet_link_tag (data.page.stylesheet ? data.page.stylesheet : {})
+
+    %link{:href => "//cloud.typography.com/6764732/687468/css/fonts.css", :rel => "stylesheet", :type => "text/css"}/
+    = stylesheet_link_tag "styles"
+    = javascript_include_tag  "app"
+
+  %body{:class => page_classes}
+    = yield

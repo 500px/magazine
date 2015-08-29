@@ -1,0 +1,98 @@
+.modal
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translateX(-50%) translateY(-50%)
+  +clearfix()
+  overflow: hidden
+  z-index: 1050
+
+  outline: 0
+
+  body.modal-open &
+    overflow-x: hidden
+    overflow-y: auto
+
+  &.modal-backdrop
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    transform: none
+
+    .modal-dialog
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translateX(-50%) translateY(-50%)
+
+  &.fade
+    opacity: 0
+    transition: opacity .4s ease-in-out
+
+    &.in
+      opacity: 1
+
+
+  .modal-dialog
+    // It's your responsibility to ensure width/height are set correctly.
+
+    position: relative
+    overflow: hidden
+
+    background: white
+    border: 2px solid #d4d5d6
+    border-radius: 3px
+    box-shadow: 0 2px 25px rgba(0,0,0,0.4)
+
+  h3.modal-header-title
+    width: 100%
+    height: 45px
+    padding: 0 10px
+    margin: 0
+
+    border-bottom: 1px solid #d4d5d6
+    background-color: $light-grey
+
+    line-height: 45px
+    color: $medium-grey
+    text-transform: uppercase
+    text-align: left
+
+  .modal-header-close
+    position: relative
+    float: right
+    width: 16px
+    height: 16px
+    margin: 14px 10px
+
+    font-size: 16px
+    line-height: 0.8em
+    font-weight: bold
+    color: $medium-grey
+    text-align: center
+
+    cursor: pointer
+
+  .modal-controls
+    position: absolute
+    width: 100%
+    height: 50px
+    bottom: 0
+    padding: 10px
+
+    border-top: 1px solid #d4d5d6
+    background-color: $light-grey
+
+  &+ .overlay
+    display: block
+    position: fixed
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background-color: red
+
+body.modal-open
+  height: 100%
+  overflow: hidden

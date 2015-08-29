@@ -1,0 +1,19 @@
+=column($cols, $margin-side: 10px)
+  float: left
+  display: block
+  width: #{300 * $cols - 20}px
+  margin: 0 $margin-side
+  position: relative
+
+=column_parent()
+  +clearfix()
+
+  > div:first-child
+    margin-left: 0
+  > div:last-child
+    margin-right: 0
+
+// =reset_column()
+//   float: none
+//   width: auto
+//   margin: 0

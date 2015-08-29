@@ -1,0 +1,284 @@
+/* Popovers */
+
+.popover
+  position: relative
+  width: 276px
+  z-index: 2010
+  &.actors_popover
+    width: 350px
+  .arrow-with-fill, .arrow-with-fill:after
+    border: solid transparent
+    height: 0
+    width: 0
+    position: absolute
+    pointer-events: none
+  .arrow-with-fill
+    top: -3px
+    left: 50%
+    +arrow(20px, 10px, up, $action-grey-hover)
+    margin-left: -10px
+
+    &:after
+      display: inline-block
+      content: ' '
+      left: 50%
+      top: -6px
+
+      +arrow(18px, 9px, up, $white)
+      margin: 0 0 0 -9px
+      z-index: 2111
+
+    &.arrow-pointing-left
+      top: 30px
+      left: -10px
+      +arrow(10px, 20px, left, $action-grey-hover)
+
+      &:after
+        +arrow(9px, 18px, left, $white)
+        top: 0
+        left: -6px
+        margin: -9px 0 0 0
+
+    &.arrow-pointing-right
+      top: 30px
+      left: auto
+      right: -20px
+      +arrow(10px, 20px, right, $action-grey-hover)
+
+      &:after
+        +arrow(9px, 18px, right, $white)
+        top: 0
+        left: -12px
+        margin: -9px 0 0 0
+
+  .contain
+    background: $light-grey
+    border-radius: 3px
+    box-shadow: 0 2px 25px rgba(0,0,0,0.2)
+  .header
+    border-radius: 1px 1px 0 0
+    width: auto
+    background-color: #fff
+    position: fixed
+    height: 45px
+    line-height: 44px
+    padding: 0 10px
+    border-bottom: 1px solid rgba(34,34,34,0.1)
+    z-index: 2110
+    &.relative
+      width: 100%
+      position: relative
+    h3
+      display: block
+      float: left
+      color: $medium-grey
+      margin: 0
+    .count
+      color: $dark-grey
+      margin-left: 5px
+    .pill
+      margin: 13px 0 0
+      float: right
+      &.label // pill is being used as a label, not a button
+        float: left
+        cursor: default
+        margin-left: 5px
+        &:hover
+          background-color: $action-grey
+    .close
+      +vertical-align()
+      position: absolute
+      right: 10px
+      width: 20px
+      height: 20px
+      color: $medium-grey
+      line-height: 16px
+      font-size: 20px
+      text-align: center
+      cursor: pointer
+      transition: all 0.2s
+      &:hover
+        opacity: 0.7
+  .inside
+    height: 100%
+    color: $dark-grey
+    border-right-color: $light-grey-secondary
+    background-color: #fff
+    border-radius: 3px
+    border: 2px solid $action-grey-hover
+    z-index: 2105
+    position: relative
+    width: 100%
+    overflow: hidden
+  .scroll
+    overflow: auto
+  .list
+    .actors
+      .actor
+        position: relative
+        padding: 0 10px
+        overflow: hidden
+        width: 100%
+        height: 60px
+        &:hover
+          background-color: $light-grey // override default
+        &.following
+          .follow
+            display: none
+          .following
+            display: inline-block
+        &.self
+          .follow
+            display: none
+          .following
+            display: none
+          .self
+            display: inline-block
+        .left
+          float: left
+          width: 100%
+          max-width: calc(100% - 80px)
+          font-size: 0 // inline block
+        .right
+          position: absolute
+          right: 10px
+          top: 5px
+        .avatar
+          display: inline-block
+          vertical-align: middle
+          width: 40px
+          height: 40px
+          border-radius: 50%
+          background-color: #fff
+          background-size: cover
+          transition: all 0.2s
+          padding: 0
+          margin: 10px 10px 0 0
+          cursor: pointer
+          &:hover
+            opacity: 0.5
+        .actor_info
+          display: inline-block
+          vertical-align: middle
+          max-width: calc(100% - 55px) // room for avatar and margin
+          margin-top: 5px
+        .name
+          float: left
+          clear: both
+          font-size: 14px
+          font-weight: bold
+          color: $dark-grey
+          line-height: 1.4em
+          padding: 0
+          margin-bottom: 2px
+          transition: all 0.2s
+          cursor: pointer
+          max-width: 100%
+          +ellipsis()
+          &:hover
+            color: $action-blue
+        .description
+          float: left
+          clear: both
+          font-size: 12px
+          font-weight: normal
+          color: $medium-grey
+          line-height: 1.4em
+        .following
+          display: none
+        .self
+          display: none
+          color: $action-grey
+
+
+    li
+      font-size: 14px
+      font-weight: normal
+      color: $medium-grey
+      line-height: 48px
+      background-color: $light-grey
+      border-top: 1px solid $light-grey-secondary
+      height: 50px
+      -webkit-tap-highlight-color: rgba(0,0,0,0)
+      transition: background-color 0.1s
+      &:hover
+        background-color: $light-grey-secondary
+      &:first-child
+        border-top: 0
+        a:not(.button)
+          border-radius: 0 0 1px 1px
+      a:not(.button)
+        display: block
+        color: $medium-grey
+        padding: 0 10px 0 10px
+        height: 100%
+        &.active
+          .check
+            opacity: 1
+            animation: pulse_large 0.4s 0s ease-in-out forwards
+        img
+          float: left
+          position: relative
+          top: 10px
+          width: 30px
+          height: 30px
+          margin-right: 10px
+          border-radius: 2px
+        strong
+          float: left
+          font-weight: bold
+        span
+          font-weight: normal
+        .check
+          float: right
+          display: block
+          height: 50px
+          width: 16px
+          opacity: 0
+          transform: scale(0.95)
+          transition: all 0.15s
+          background: url(../images/check.svg) center center no-repeat
+          background-size: 16px
+
+  .pill.submit
+    display: none
+  &.selected
+    .pill.submit
+      display: block
+    .pill.grey
+      display: none
+  .header
+    width: 100%
+    position: relative
+  .inside
+    &.scrolled
+      .header
+        box-shadow: 0 1px 2px rgba(0,0,0,0.067)
+    .scroll
+      position: relative
+  .info
+    .add_to_set
+      .plus
+        float: left
+        display: block
+        width: 30px
+        height: 30px
+        border-radius: 2px
+        margin: 10px 0 0 10px
+        color: #fff
+        background-color: $action-blue
+        text-align: center
+        line-height: 26px
+        font-size: 20px
+      input
+        //float: left
+        //display: block
+        font-size: 14px
+        width: 100% //calc(100% - 50px)
+        padding: 16px 0 0 0
+        text-indent: 10px
+        border: none
+        background-color: transparent
+        &::-webkit-input-placeholder
+          font-weight: normal
+          color: lighten($medium-grey, 25%)

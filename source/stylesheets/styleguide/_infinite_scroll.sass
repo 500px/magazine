@@ -1,0 +1,58 @@
+.infinite_scroll_container
+  .infinite_scroll_loader, .infinite_scroll_warning
+    display: block
+    clear: both
+    height: 40px
+    margin: 10px
+    background-color: $light-grey-secondary
+    border-radius: 3px
+    color: $medium-grey
+    text-align: center
+    font-size: 14px
+    font-weight: bold
+    line-height: 38px
+    a
+      color: $action-blue
+      text-decoration: none
+      &:hover
+        color: $action-blue-hover
+
+    .loading
+      display: inline-block
+      margin: 12px 0px
+      width: 32px
+      height: 16px
+      background: transparent asset-data-url('v3/spinners/loading.png') center top no-repeat
+      animation: infinity_spinner_large 2s steps(60) infinite
+
+    .finished
+      display: none
+  p
+    display: inline-block
+
+  .empty_collection_view
+    display: none
+
+
+  // Don't show the loader until we start fetching
+  .infinite_scroll_loader
+    display: none
+
+  &.in_progress
+    .infinite_scroll_loader
+      display: block
+
+  // Hide the loader once we've fetched all pages
+  &.pagination_finished
+    .infinite_scroll_loader
+      .loading
+        display: none
+      .finished
+        display: inline-block
+    .empty_collection_view
+      display: block
+
+  // Hide the loader if we have only one page of results
+  &.single_page
+    .infinite_scroll_loader
+      display: none

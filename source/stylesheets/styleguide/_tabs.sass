@@ -1,0 +1,49 @@
+.px_tabs
+  background-color: #fff
+  list-style-type: none
+  text-align: center
+  white-space: nowrap
+  overflow-x: auto
+  &.fixed_size
+    display: table
+    width: 100%
+    > li
+      display: table-cell
+      text-align: center
+      &:first-child
+        padding-left: 20px
+        text-align: left
+      &:last-child
+        padding-right: 20px
+        text-align: right
+
+  > li
+    display: inline
+    margin: 0 10px
+    &.active
+      > a
+        color: $action-blue
+        border-bottom: 2px solid $action-blue
+    > a
+      font-size: 14px
+      display: inline-block
+      padding: 15px 0
+      height: 50px
+      border-bottom: 2px solid transparent
+      color: $medium-grey
+      white-space: nowrap
+      text-transform: uppercase
+      font-weight: bold
+      cursor: pointer
+      .count
+        font-weight: normal
+      &:hover
+        color: $action-blue
+
+.px_tabs_fade
+  position: absolute
+  width: 10px
+  right: 0
+  top: 1px // dont hide border
+  bottom: 1px // dont hide border
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 1) 100%)

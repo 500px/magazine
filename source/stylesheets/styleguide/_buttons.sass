@@ -1,0 +1,331 @@
+/* Button */
+
+.button
+  cursor: pointer
+  display: inline-block
+  padding: 0 10px
+  height: 30px
+  line-height: 28px
+  border-radius: 3px
+  font-weight: bold
+  color: #fff
+  text-decoration: none
+  background-color: $action-blue
+  border: 1px solid darken($action-blue, 5)
+  text-shadow: 0px 1px 0px darken($action-blue, 5)
+  box-shadow: 0px 1px 0px rgba(255,255,255,0.15) inset
+  transition: background-color 0.1s ease-in-out
+
+  &:hover
+    background-color: $action-blue-hover
+    &:active
+      background-color: $action-blue
+      box-shadow: 0px 1px 0px rgba(0,0,0,0.15) inset
+
+  &.following:not(.mini_follow)
+    @extend .submit
+    transition: none
+    &:hover
+      @extend .delete
+      @extend .delete:hover
+
+  &.new_fav
+    position: relative
+    min-width: 60px
+    text-align: center
+    background-color: $action-red
+    border-color: darken($action-red, 5)
+    text-shadow: none
+    .icon
+      height: 20px
+      width: 20px
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      margin: auto
+      .shape
+        fill: transparent
+        stroke: #fff
+        stroke-width: 3px
+        stroke-dasharray: 150
+        stroke-linejoin: round
+        transition: all 0.2s ease-out
+    &:hover
+      background-color: $action-red-hover
+    &:active
+      background-color: $action-red
+    &.hearted
+      .icon
+        animation: heart_animation 0.8s linear both
+        .shape
+          fill: #fff
+          stroke-opacity: 0
+    &.with_count
+      padding-left: 40px
+      .icon
+        left: 10px
+        right: auto
+
+  &.new_like
+    position: relative
+    min-width: 60px
+    text-align: center
+    background-color: $action-blue
+    border-color: darken($action-blue, 5)
+    text-shadow: none
+    .icon
+      height: 20px
+      width: 20px
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      margin: auto
+      .shape
+        fill: transparent
+        stroke: #fff
+        stroke-width: 3px
+        stroke-dasharray: 150
+        stroke-linejoin: round
+        transition: all 0.2s ease-out
+    &:hover
+      background-color: $action-blue-hover
+    &:active
+      background-color: $action-blue
+    &.liked
+      .icon
+        animation: heart_animation 0.8s linear both
+        .shape
+          fill: #fff
+          stroke-opacity: 0
+    &.with_count
+      padding-left: 40px
+      .icon
+        left: 10px
+        right: auto
+
+  &.mini_follow
+    font-size: 12px
+    line-height: 22px
+    height: 24px
+    padding: 0 8px
+    background: none
+    text-shadow: none
+    box-shadow: none
+    color: $action-blue
+    font-weight: normal
+    border-color: $action-blue
+    &:hover
+      background-color: rgba($action-blue, 0.1)
+    &:active
+      box-shadow: none
+    &.following
+      background-color: $action-green
+      border-color: $action-green
+      color: #fff
+      transition: none
+      &:hover
+        border-color: darken($action-red, 5)
+        background-color: $action-red-hover
+
+  &.submit
+    background-color: $action-green
+    border-color: darken($action-green, 5)
+    text-shadow: 0px 1px 0px darken($action-green, 5)
+    &:hover
+      background-color: $action-green-hover
+      &:active
+        background-color: $action-green
+        box-shadow: 0px 1px 0px rgba(0,0,0,0.15) inset
+
+  &.secondary
+    background-color: $medium-grey
+    border-color: darken($medium-grey, 5)
+    text-shadow: 0px 1px 0px darken($medium-grey, 5)
+    &:hover
+      background-color: lighten($medium-grey, 5)
+      &:active
+        background-color: $medium-grey
+        box-shadow: 0px 1px 0px rgba(0,0,0,0.15) inset
+
+  &.tertiary
+    background-color: $light-grey
+    border-color: rgba($action-grey, 0.5)
+    text-shadow: none
+    color: $medium-grey
+    &:hover
+      background-color: $light-grey-secondary
+      &:active
+        background-color: $light-grey
+        box-shadow: 0px 1px 0px rgba(0,0,0,0.15) inset
+
+  &.delete
+    background-color: $action-red
+    border-color: darken($action-red, 5)
+    text-shadow: 0px 1px 0px darken($action-red, 5)
+    &:hover
+      background-color: $action-red-hover
+      &:active
+        background-color: $action-red
+        box-shadow: 0px 1px 0px rgba(0,0,0,0.15) inset
+
+  &.large
+    min-width: 250px
+    height: 50px
+    text-align: center
+    line-height: 48px
+    font-size: 20px
+
+  &.medium
+    min-width: 180px
+    height: 40px
+    text-align: center
+    line-height: 38px
+    font-size: 16px
+
+  &.disabled
+    cursor: default
+    opacity: 0.5
+    &:hover
+      background-color: $action-blue
+    &.new_fav:hover
+      background-color: $action-red
+    &.submit:hover
+      background-color: $action-green
+    &.secondary:hover
+      background-color: $medium-grey
+    &.tertiary:hover
+      background-color: $action-grey
+    &.delete:hover
+      background-color: $action-red
+
+  &.on-image
+    border: none
+    box-shadow: 0px 1px 0px rgba(255,255,255,0.15) inset, 0px 1px 2px rgba(0,0,0,0.15)
+
+  &.only_icon
+    background-color: transparent
+    border: none
+    box-shadow: none
+    width: 30px
+    height: 30px
+    min-width: 0
+    padding: 0
+    vertical-align: middle
+    line-height: 0
+    .icon
+      width: 24px
+      height: 24px
+    &:active
+      box-shadow: none
+    &:hover
+      background-color: transparent
+      .icon
+        .shape
+          fill: rgba(255, 255, 255, 0.4)
+    &.hearted
+      .icon
+        .shape
+          fill: #fff
+
+  &.full
+    width: 100%
+    text-align: center
+
+  & + .button
+    margin-left: 10px
+
+.pill
+  display: inline-block
+  background-color: $action-grey
+  line-height: 18px
+  font-size: 11px
+  font-weight: bold
+  text-transform: uppercase
+  text-align: center
+  padding: 0 5px
+  border-radius: 2px
+  color: #fff
+  cursor: pointer
+  transition: background-color 0.1s ease-in-out
+  &:hover
+    background-color: $action-blue-hover
+  &.action
+    background-color: $action-blue
+    &:hover
+      background-color: $action-blue-hover
+  &.submit
+    background-color: $action-green
+    &:hover
+      background-color: $action-green-hover
+  &.delete
+    &:hover
+      background-color: $action-red-hover
+  &.grey
+    &:hover
+      background-color: $medium-grey
+  & + .pill
+    margin-left: 10px
+
+.action-button
+  background: center center no-repeat
+  background-size: 20px 20px
+  margin-left: 10px
+  cursor: pointer
+  display: inline-block
+  width: 50px
+  height: 50px
+  border-radius: 3px
+  color: #fff
+  font-size: 16px
+  background-color: rgba(34, 34, 34, 0.2)
+  overflow: hidden
+  position: relative
+  cursor: pointer
+  &.animate:hover
+    background-color: rgba(34, 34, 34, 0.4)
+    .icon
+      top: -15px
+      opacity: 0
+    .count
+      top: 0px
+      opacity: 1
+  &.grey-bg, &.grey-bg.animate:hover
+    background-color: $very-dark-grey
+  &.favorite
+    .icon
+      background-image: image-url('v3/focus/fave.svg')
+      background-size: 20px 20px
+    &.active, &.active:hover
+      background-color: $action-red
+  &.external
+    .icon
+      background-image: image-url('v3/focus/view_photo_page.svg')
+      background-size: 20px 20px
+  &.close
+    .icon
+      background-image: image-url('groups/photo-focus_close.png')
+      background-size: 12px 12px
+      +retina
+        background-image: image-url('groups/photo-focus_close@2x.png')
+  &.active.pulse
+    animation: pulse 0.6s 0.15s ease-in-out
+  span
+    position: absolute
+    top: 0
+    left: 0
+    display: block
+    opacity: 1
+    width: 100%
+    height: 100%
+    text-align: center
+    line-height: 48px
+    background: center center no-repeat
+    transition: all 0.15s ease-in-out
+    transition-property: opacity top background-color
+  .count
+    top: 15px
+    opacity: 0

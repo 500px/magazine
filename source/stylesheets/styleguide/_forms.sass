@@ -1,0 +1,236 @@
+// Borrowed on advice from Bootstrap, feel free to copy more of their re-normalizations
+// https://github.com/twbs/bootstrap/blob/master/less/forms.less#L47
+// -> Override content-box in Normalize (* isn't specific enough)
+
+input[type="search"]
+  box-sizing: border-box
+
+fieldset
+  border: 0px solid transparent
+
+.form-group
+  display: block
+  position: relative
+
+  .validation
+    span
+      display: block
+      position: relative
+      font-size: 13px
+      font-style: italic
+      line-height: 1.4em
+
+      &.hint-group
+        +clearfix()
+
+        .hint, .hint-optional
+          display: inline-block
+
+      // Hide validation errors by default
+      &[class*="error-"]
+        display: none
+
+  &.invalid-value
+    .validation
+      span
+        color: $action-red
+
+.form-control
+  display: block
+  position: relative
+
+.help-block
+  display: block
+  position: relative
+
+// Form headings. Use with h4.
+.form_heading
+  font-size: 14px
+  color: $action-blue
+  font-weight: normal
+  margin-bottom: 10px
+
+.invalid-value
+  .error
+    color: $action-red
+    margin-top: 5px
+    font-size: 12px
+
+textarea, input
+  // With validation
+  // in case you're wondering, the syntax below means: an input that is a child of .valid-value
+  .valid-value &
+    border: 1px solid $action-green
+
+  .invalid-value &
+    border: 1px solid $action-red
+
+  // .with-feedback is used in groups only
+  .with-feedback &
+    padding-right: 22.5px
+
+    + .icon
+      display: block
+      position: absolute
+      width: 12px
+      height: 12px
+      top: 50%
+      transform: translateY(-50%)
+      right: 0
+      z-index: 2
+
+      opacity: 0
+      transition: opacity 0.15s ease-in-out
+
+  .with-feedback.valid-value &, .with-feedback.invalid-value &
+    + .icon
+      opacity: 1
+
+      background: transparent image-url('styleguide/forms/validation-feedback.svg') left top no-repeat
+      background-size: cover
+
+  .with-feedback.valid-value &
+    + .icon
+      background-position: 0 0
+
+  .with-feedback.invalid-value &
+    + .icon
+      background-position: -12px 0
+
+input
+  font-size: 14px
+  padding: 8px 10px
+  color: $dark-grey
+  border: 1px solid rgba($action-grey, 0.5)
+  border-radius: 3px
+  transition: border-color 0.2s
+  resize: none
+  line-height: 1.4em
+  +placeholder
+    color: $action-grey
+  &:focus
+    border-color: $action-blue
+
+  &.checkbox_input
+    display: none
+    &:checked + .checkbox:before
+      opacity: 1
+      animation: pulse_large 0.4s 0s ease-in-out forwards
+
+textarea
+  font-size: 14px
+  padding: 8px 10px
+  width: 100%
+  color: $dark-grey
+  border: 1px solid rgba($action-grey, 0.5)
+  border-radius: 3px
+  line-height: 1.4em
+  height: auto
+  resize: none
+  transition: border-color 0.2s
+  +placeholder
+    color: $action-grey
+  &:focus
+    border-color: $action-blue
+
+.select_wrap
+  position: relative
+  height: 34px
+
+  select, .ui-selectmenu-text
+    color: $dark-grey
+    border: 1px solid rgba($action-grey, 0.5)
+    border-radius: 3px
+    background-color: #fff
+    width: 100%
+    padding: 6px 30px 6px 10px
+    resize: none
+    transition: border-color 0.1s
+    height: 100%
+    +no_appearance()
+    &:focus
+      border-color: $action-blue
+      & + .arrows
+        border-color: $action-blue
+    &::-ms-expand
+      display: none
+  .arrows, .ui-icon
+    position: absolute
+    right: 0px
+    top: 0px
+    bottom: 0px
+    width: 30px
+    border: 1px solid rgba($action-grey, 0.5)
+    border-left: none
+    border-radius: 0 3px 3px 0
+    background-image: image-url('styleguide/forms/up_down.png')
+    background-repeat: no-repeat
+    background-size: 7px 12px
+    background-position: center center
+    background-color: #fff
+    transition: border-color 0.1s
+    pointer-events: none
+    +retina
+      background-image: image-url('styleguide/forms/up_down@2x.png')
+  &.minimal
+    select, .arrows
+      border: none
+
+// fancy checkbox used in organizer
+.checkbox
+  +noselect()
+  display: inline-block
+  width: 30px
+  height: 30px
+  margin-right: 10px
+  border: 1px solid rgba($action-grey, 0.5)
+  border-radius: 3px
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1)
+  cursor: pointer
+  background-color: #fff
+  &:before
+    opacity: 0
+    content: ''
+    width: 100%
+    height: 100%
+    display: block
+    background-image: image-url('styleguide/forms/check.svg')
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: 16px
+    transform: scale(0.95)
+    transition: opacity 0.2s
+  &.checked
+    &:before
+      opacity: 1
+      animation: pulse_large 0.4s 0s ease-in-out forwards
+  &.multi_values
+    &:before
+      opacity: 1
+      animation: pulse_large 0.4s 0s ease-in-out forwards
+      background-image: image-url('styleguide/forms/indeterminate.svg')
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: 16px
+
+// Label used in licensing form for file uploading
+.filepicker_wrap
+  input[type="file"]
+    display: none
+  .filepicker_label
+    display: inline-block
+    cursor: pointer
+    padding: 8px 10px 8px 25px
+    font-size: 14px
+    font-weight: normal
+    line-height: 1.2em
+    color: $dark-grey
+    border: 1px solid rgba($action-grey, 0.5)
+    border-radius: 3px
+    background-color: #fff
+    background-image: image-url('styleguide/forms/plus@2x.png')
+    background-size: 9px
+    background-position: 10px center
+    background-repeat: no-repeat
+
+

@@ -1,0 +1,36 @@
+/* Browser */
+
+.browser
+  display: inline-block
+  box-shadow: $large-shadow
+  &.small
+    .titlebar
+      height: 10px
+      .dot
+        width: 4px
+        height: 4px
+        border-radius: 4px
+        margin: 3px 0 0 3px
+  .titlebar
+    height: 16px
+    border-radius: 3px 3px 0 0
+    background-color: #d9dee1
+    font-size: 0
+    text-align: left
+    .dot
+      display: inline-block
+      width: 6px
+      height: 6px
+      border-radius: 6px
+      background-color: $medium-grey
+      margin: 5px 0 0 5px
+  .screenshot
+    background-color: $light-grey
+    border: 1px solid #d9dee1
+    border-top: 0
+    border-radius: 0 0 3px 3px
+    line-height: 0
+    overflow: hidden
+    img
+      width: 100%
+      border-radius: 0 0 2px 2px
