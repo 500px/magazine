@@ -1,11 +1,99 @@
 @import ./styleguide
 
+body
+  background-color: $light-grey
+
+h1, h2, h3, h4, h5, span, p, a, blockquote, em
+  font-family: "Chronicle SSm A", "Chronicle SSm B"
+  font-style: normal
+  font-weight: 400
+
+=didot()
+  font-family: "Quarto A", "Quarto B"
+  font-style: normal
+  font-weight: 800
+
 .wrapper
   text-align: center
   padding-top: 100px
 
+.animate_out
+  .issue
+
+.page_issue
+  &.loaded
+    h1
+      opacity: 1
+      transform: translateY(0)
+    &.reverse
+      h1
+        opacity: 0
+        transform: translateY(20px)
+  h1
+    color: red
+    opacity: 0
+    transform: translateY(20px)
+    transition: opacity 1s, transform 1s cubic-bezier(0.11, 0.82, 0.32, 1)
+
+.page_home
+  &.loaded
+    .issue
+      transition: transform 1s cubic-bezier(0.11, 0.82, 0.32, 1), opacity 1s cubic-bezier(0.11, 0.82, 0.32, 1), box-shadow 0.5s cubic-bezier(0.29, 0.9, 0.36, 1)
+      transform: scale(1)
+      opacity: 1
+    &.reverse
+      .issue
+        opacity: 0
+        transform: scale(0.95) !important
+  &.ready_for_hover
+    .issue
+      &:hover
+        transform: scale(1.005)
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3)
+      &:active
+        transform: scale(1)
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15)
+
 .issue
+  position: relative
   display: inline-block
   width: 593px
   height: 816px
   background-size: cover
+  background-color: rgba($action-grey, 0.5)
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15)
+  cursor: pointer
+  transition: box-shadow 0.5s cubic-bezier(0.29, 0.9, 0.36, 1), transform 0.5s cubic-bezier(0.29, 0.9, 0.36, 1)
+  opacity: 0
+  transform: scale(0.95)
+  // animation-duration: 1s
+  // animation-timing-function: cubic-bezier(0.11, 0.82, 0.32, 1)
+  // animation-fill-mode: forwards
+  // animation-name: fadeIn
+  img
+    width: 100%
+    height: 100%
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+    transform: scale(0.95)
+  100%
+    opacity: 1
+    transform: scale(1)
+
+@keyframes fadeOut
+  0%
+    opacity: 1
+    transform: scale(1)
+  100%
+    opacity: 0
+    transform: scale(0.95)
+
+@keyframes slideUp
+  0%
+    opacity: 0
+    transform: translateY(20px)
+  100%
+    opacity: 1
+    transform: translateY(0)
