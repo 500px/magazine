@@ -6,7 +6,8 @@ body
 h1, h2, h3, h4, h5, span, p, a, blockquote, em
   font-family: "Chronicle SSm A", "Chronicle SSm B"
   font-style: normal
-  font-weight: 400
+  font-weight: 300
+  line-height: 1.4em
 
 =didot()
   font-family: "Quarto A", "Quarto B"
@@ -15,27 +16,231 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
 
 .wrapper
   text-align: center
-  padding-top: 100px
-
-.animate_out
-  .issue
 
 .page_issue
   &.loaded
-    h1
+    .top, .toc
       opacity: 1
       transform: translateY(0)
     &.reverse
-      h1
+      .top, .toc
         opacity: 0
-        transform: translateY(20px)
-  h1
-    color: red
+        transform: translateY(20px) !important
+
+  .cover_section
+    position: relative
+    height: 100vh
+    padding: 80px 0
+    width: 100%
+    display: table
+
+  .cover_section_align
+    display: table-cell
+    vertical-align: middle
+
+  .cover_section_back
+    position: absolute
+    left: 20px
+    top: 20px
+    a
+      transition: all 0.2s
+      font-size: 14px
+      color: $action-grey
+      &:hover
+        color: $medium-grey
+
+  .top
+    width: 100%
+    padding: 0 10px
+    text-align: center
+    margin-bottom: 60px
     opacity: 0
     transform: translateY(20px)
-    transition: opacity 1s, transform 1s cubic-bezier(0.11, 0.82, 0.32, 1)
+    transition: all 1s cubic-bezier(0.11, 0.82, 0.32, 1)
+
+  .pixels_name
+    +didot()
+    font-size: 64px
+    color: #000
+    margin: 0
+    line-height: 1.2
+
+  .date
+    margin: 0
+    font-size: 16px
+    color: #000
+
+  .toc
+    max-width: 640px
+    margin: 0 auto
+    opacity: 0
+    transform: translateY(20px)
+    transition: all 1s cubic-bezier(0.11, 0.82, 0.32, 1)
+
+  .toc_block
+    position: relative
+    width: 100%
+    height: 100px
+    padding: 10px 0
+    text-align: left
+    color: #000
+    margin-bottom: 40px
+    cursor: pointer
+    transition: all 0.2s
+    border-top: 1px solid $medium-grey
+    &:hover
+      opacity: 0.7
+    &:last-child
+      margin-bottom: 0
+    &.large
+      height: 345px
+
+  .toc_block_heading
+    text-align: left
+    margin-bottom: 20px
+    span
+      border-bottom: 1px solid $medium-grey
+      font-size: 12px
+      font-weight: bold
+
+  .toc_block_number
+    font-size: 12px
+    font-variant: small-caps
+    font-weight: bold
+
+  .toc_block_name
+    margin: 0
+    font-size: 28px
+    color: #000
+    +didot()
+
+  .toc_block_info
+    font-size: 0
+    position: absolute
+    bottom: 20px
+    left: 0px
+    right: 0px
+
+  .toc_block_info_image
+    display: inline-block
+    width: 200px
+    height: 240px
+    margin-right: 40px
+    vertical-align: middle
+
+  .toc_block_info_quote
+    display: inline-block
+    font-size: 18px
+    color: #000
+    vertical-align: middle
+    width: calc(100% - 240px)
+
+  .start_reading
+    display: inline-block
+    text-align: center
+    font-size: 14px
+    color: $action-grey
+    margin: 20px 0
+
+  .content_section
+    border-top: 1px solid $light-grey-secondary
+    max-width: 1000px
+    padding: 80px 0
+    margin: 0 auto
+
+  .content_section_heading
+    font-size: 36px
+    +didot()
+    margin: 0 0 60px 0
+    color: #000
+
+  .content_section_separator
+    max-width: 100px
+    height: 1px
+    background-color: $action-grey
+    margin: 30px auto 40px auto
+
+  .content_section_body
+    font-size: 16px
+    max-width: 640px
+    margin: 0 auto 20px auto
+    color: #000
+    text-align: left
+    &.bold
+      font-weight: bold
+
+  .content_section_masthead
+    margin-top: 60px
+
+  .content_section_masthead_heading
+    display: block
+    font-size: 14px
+    color: $medium-grey
+    margin-bottom: 5px
+
+  .content_section_image
+    margin-bottom: 40px
+    &.main
+      width: 100%
+    &.fit
+      max-width: 640px
+    &.pull
+      max-width: 420px
+      &.left
+        margin: 0 20px 20px 0
+        float: left
+      &.right
+        margin: 0 0 20px 20px
+        float: right
+
+  .content_section_blockquote
+    display: inline-block
+    margin-bottom: 40px
+    padding: 40px 20px
+    border-top: 3px solid $light-grey-secondary
+    border-bottom: 3px solid $light-grey-secondary
+    font-size: 20px
+    &.fit
+      max-width: 640px
+    &.pull
+      max-width: 420px
+      &.left
+        margin: 0 20px 20px 0
+        float: left
+      &.right
+        margin: 0 0 20px 20px
+        float: right
+
+  .content_section_table
+    display: inline-block
+    margin-bottom: 40px
+    text-align: left
+    padding: 20px 0
+    border-top: 1px solid $medium-grey
+    border-bottom: 1px solid $medium-grey
+    &.pull
+      max-width: 300px
+      &.left
+        margin: 0 20px 20px 0
+        float: left
+      &.right
+        margin: 0 0 20px 20px
+        float: right
+
+  .content_section_table_row
+    margin-bottom: 10px
+
+  .content_section_table_header
+    display: block
+    font-weight: bold
+    font-size: 12px
+
+  .content_section_table_body
+    display: block
+    font-size: 16px
 
 .page_home
+  padding-top: 100px
   &.loaded
     .issue
       transition: transform 1s cubic-bezier(0.11, 0.82, 0.32, 1), opacity 1s cubic-bezier(0.11, 0.82, 0.32, 1), box-shadow 0.5s cubic-bezier(0.29, 0.9, 0.36, 1)
@@ -66,10 +271,6 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
   transition: box-shadow 0.5s cubic-bezier(0.29, 0.9, 0.36, 1), transform 0.5s cubic-bezier(0.29, 0.9, 0.36, 1)
   opacity: 0
   transform: scale(0.95)
-  // animation-duration: 1s
-  // animation-timing-function: cubic-bezier(0.11, 0.82, 0.32, 1)
-  // animation-fill-mode: forwards
-  // animation-name: fadeIn
   img
     width: 100%
     height: 100%

@@ -6,6 +6,5 @@ description: Pixels Magazine is a digital publication that celebrates the wonder
 .wrapper#smooth
   .page_home
     - data.issues.issues.each do |issue|
-      %a.issue{:class => issue['id'], :id => issue['id'], :href => "/issues/#{issue['id']}"}
+      %a.issue{:class => issue['id'], :id => issue['id'], :href => "/issues/#{issue['number']}"}
         %img{:src => "/images/issues/#{issue['id']}/cover.jpg"}
-
