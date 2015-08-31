@@ -19,18 +19,96 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
 
 .page_issue
   &.loaded
-    .top, .toc
+    .top, .toc, .cover_section_back
       opacity: 1
       transform: translateY(0)
     &.reverse
-      .top, .toc
+      .top, .toc, .cover_section_back
         opacity: 0
         transform: translateY(20px) !important
+
+  .dark_overlay
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-color: rgba(0, 0, 0, 0.6)
+    z-index: 900
+    display: none
+
+  .sliding_toc
+    position: fixed
+    top: 50px
+    left: -680px
+    bottom: 0
+    padding: 20px
+    width: 680px
+    background-color: #fff
+    z-index: 1000
+    opacity: 0
+    transition: all 0.5s cubic-bezier(0.770, 0.000, 0.175, 1.000)
+    overflow-y: scroll
+    &.visible
+      left: 0
+      opacity: 1
+
+  .sticky_nav
+    position: fixed
+    top: 0
+    height: 50px
+    left: 0
+    right: 0
+    background-color: #fff
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)
+    text-align: center
+    z-index: 1000
+    transition: transform 0.2s cubic-bezier(0.11, 0.82, 0.32, 1)
+    transform: translateY(-10px)
+    display: none
+    &.show
+      transform: translateY(0)
+
+  .sticky_nav_left
+    position: absolute
+    left: 20px
+    top: 0
+    bottom: 0
+
+  .sticky_nav_toc_link
+    line-height: 50px
+    color: $medium-grey
+    font-size: 14px
+    transition: all 0.2s
+    cursor: pointer
+    &:hover
+      color: $action-grey
+
+  .sticky_nav_pixels_name
+    font-size: 24px
+    +didot()
+    color: #000
+    line-height: 50px
+
+  .sticky_nav_right
+    position: absolute
+    right: 20px
+    top: 0
+    bottom: 0
+
+  .sticky_nav_right
+    a
+      color: $action-grey
+      transition: all 0.2s
+      line-height: 50px
+      font-size: 14px
+      &:hover
+        color: $medium-grey
 
   .cover_section
     position: relative
     height: 100vh
-    padding: 80px 0
+    padding: 80px 20px
     width: 100%
     display: table
 
@@ -42,6 +120,9 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
     position: absolute
     left: 20px
     top: 20px
+    opacity: 0
+    transform: translateY(20px)
+    transition: all 1s cubic-bezier(0.11, 0.82, 0.32, 1)
     a
       transition: all 0.2s
       font-size: 14px
@@ -143,21 +224,28 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
     margin: 20px 0
 
   .content_section
-    border-top: 1px solid $light-grey-secondary
-    max-width: 1000px
-    padding: 80px 0
+    max-width: 1040px
+    padding: 80px 20px
     margin: 0 auto
+    border-top: 1px solid $light-grey-secondary
+
+  .thankyou_section
+    padding: 100px 20px
+    width: 100%
+    background-color: $light-grey-secondary
 
   .content_section_heading
-    font-size: 36px
+    font-size: 42px
     +didot()
     margin: 0 0 60px 0
     color: #000
+    &.thanks
+      margin-bottom: 20px
 
   .content_section_separator
     max-width: 100px
     height: 1px
-    background-color: $action-grey
+    background-color: $medium-grey
     margin: 30px auto 40px auto
 
   .content_section_body
@@ -166,6 +254,8 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
     margin: 0 auto 20px auto
     color: #000
     text-align: left
+    &.center
+      text-align: center
     &.bold
       font-weight: bold
 
@@ -184,6 +274,9 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
       width: 100%
     &.fit
       max-width: 640px
+    &.small
+      max-width: 300px
+      margin-bottom: 20px
     &.pull
       max-width: 420px
       &.left
@@ -239,6 +332,55 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
     display: block
     font-size: 16px
 
+  .content_section_person
+    padding: 60px 0
+
+  .content_section_profile
+    margin-bottom: 40px
+
+  .content_section_name
+    display: block
+    font-size: 28px
+    +didot()
+
+  .content_section_subtitle
+    display: block
+    font-size: 16px
+
+  .content_section_wedding
+    padding: 40px 0
+    font-size: 0
+
+  .content_section_wedding_photo
+    max-width: 300px
+    display: inline-block
+    vertical-align: middle
+
+  .content_section_wedding_info
+    display: inline-block
+    width: calc(100% - 300px)
+    padding-left: 40px
+    text-align: left
+    vertical-align: middle
+
+  .content_section_wedding_name
+    display: block
+    font-size: 28px
+    +didot()
+    color: #000
+
+  .content_section_wedding_date
+    display: block
+    font-size: 16px
+    color: $action-grey
+    margin-bottom: 20px
+
+  .content_section_wedding_text
+    font-size: 16px
+    color: #000
+    &.bold
+      font-weight: bold
+
 .page_home
   padding-top: 100px
   &.loaded
@@ -274,6 +416,41 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
   img
     width: 100%
     height: 100%
+
+@media only screen and (max-width: 700px)
+  .page_issue
+    .sticky_nav_right
+      display: none
+    .sliding_toc
+      width: auto
+      max-width: 680px
+    .toc_block
+      &.large
+        height: 100px
+    .toc_block_info
+      display: none
+    .content_section_table, .content_section_blockquote
+      width: 100%
+      &.pull
+        max-width: none
+        &.right
+          float: none
+          margin: 0 0 20px 0
+        &.left
+          float: none
+          margin: 0 0 20px 0
+    .content_section_image
+      width: 100%
+      &.pull
+        float: none
+        max-width: 100%
+    .content_section_wedding_photo
+      display: block
+      margin: 0 auto 20px auto
+    .content_section_wedding_info
+      display: block
+      width: calc(100%)
+      padding: 0
 
 @keyframes fadeIn
   0%

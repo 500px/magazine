@@ -5,10 +5,46 @@ description: Pixels Magazine is a digital publication that celebrates the wonder
 
 .wrapper#smooth
   .page_issue
+    .dark_overlay
+    .sticky_nav
+      .sticky_nav_left
+        %span.sticky_nav_toc_link
+          Table of contents
+      %span.sticky_nav_pixels_name
+        Pixels
+      .sticky_nav_right
+        %a(href="mailto:jeff@500px.com")
+          Questions / Feedback
+    .sliding_toc
+      .toc
+        .toc_block.goto_one
+          %span.toc_block_number
+            No. 1
+          %h2.toc_block_name
+            Editors' Note
+        .toc_block.large.goto_two
+          %span.toc_block_number
+            No. 2
+          %h2.toc_block_name
+            Profile: Lorena Pacheco Scott
+          .toc_block_info
+            %img.toc_block_info_image(src="/images/issues/sep2015/lorena_toc.jpg")
+            %p.toc_block_info_quote
+              “I love coming to work every day. I love the challenges, but more importantly I respect what everybody brings to the table and what they're teaching me.”
+        .toc_block.goto_three
+          %span.toc_block_number
+            No. 3
+          %h2.toc_block_name
+            Meet the co-ops
+        .toc_block.goto_four
+          %span.toc_block_number
+            No. 4
+          %h2.toc_block_name
+            Just married
     .cover_section
-      .cover_section_back
-        %a(href="/")
-          Go back
+      / .cover_section_back
+      /   %a(href="/")
+      /     Go back
       .cover_section_align
         .top
           %h1.pixels_name
@@ -16,12 +52,12 @@ description: Pixels Magazine is a digital publication that celebrates the wonder
           %p.date
             Issue 1
         .toc
-          .toc_block
+          .toc_block.goto_one
             %span.toc_block_number
               No. 1
             %h2.toc_block_name
               Editors' Note
-          .toc_block.large
+          .toc_block.large.goto_two
             %span.toc_block_number
               No. 2
             %h2.toc_block_name
@@ -30,19 +66,19 @@ description: Pixels Magazine is a digital publication that celebrates the wonder
               %img.toc_block_info_image(src="/images/issues/sep2015/lorena_toc.jpg")
               %p.toc_block_info_quote
                 “I love coming to work every day. I love the challenges, but more importantly I respect what everybody brings to the table and what they're teaching me.”
-          .toc_block
+          .toc_block.goto_three
             %span.toc_block_number
               No. 3
             %h2.toc_block_name
               Meet the co-ops
-          .toc_block
+          .toc_block.goto_four
             %span.toc_block_number
               No. 4
             %h2.toc_block_name
               Just married
         / %span.start_reading
         /   Scroll down to start reading.
-    .content_section
+    .content_section.section_one
       %h2.content_section_heading
         Editors' Note
       %p.content_section_body
@@ -62,7 +98,7 @@ description: Pixels Magazine is a digital publication that celebrates the wonder
           Designed, edited and published by Jeff Shin
         %span.content_section_masthead_heading
           Photography by David Charlec
-    .content_section
+    .content_section.section_two
       %h2.content_section_heading
         Lorena Pacheco Scott
       %img.content_section_image.main(src="/images/issues/sep2015/lorena_main.jpg")
@@ -162,8 +198,184 @@ description: Pixels Magazine is a digital publication that celebrates the wonder
         A lot of people know Harvard Business School as a business school, and I think rightfully or wrongfully so, it's developed a reputation. But its motto is to develop leaders that will make an impact on the world, and I believe that every student fundamentally believes that going into the school.
       %p.content_section_body
         I don't think I've done that quite yet. I've had professional success, but I don't think I've made a difference in the world. At some point I'd like to be a part of an organization at a leadership level that is not just making money, but is making life better for people, and is giving people a voice that don't necessarily have one.
-
-
+    .content_section.section_three
+      %h2.content_section_heading
+        Meet the co-ops
+      %p.content_section_body
+        Every couple months, we welcome a couple awesome people to join our team temporarily as a part of their co-op terms. They're so talented and great that it's hard to say goodbye to them, and I usually try to convince them to drop out and join us full time.
+      %p.content_section_body
+        Despite their short stay with us, they make a tremendous impact on our culture. Also, given all their potential for great success, it's an honour that we get to be one of the stepping stones in their journey.
+      .content_section_separator
+      .content_section_person
+        %img.content_section_image.small(src="/images/issues/sep2015/ling.jpg")
+        .content_section_profile
+          %span.content_section_name
+            Ling Meng
+          %span.content_section_subtitle
+            Web Team
+        %p.content_section_body.bold
+          Favourite thing about 500px
+        .content_section_table.pull.right
+          .content_section_table_row
+            %span.content_section_table_header
+              School
+            %span.content_section_table_body
+              University of Waterloo
+          .content_section_table_row
+            %span.content_section_table_header
+              Program
+            %span.content_section_table_body
+              Software Engineering
+          .content_section_table_row
+            %span.content_section_table_header
+              Year
+            %span.content_section_table_body
+              Three
+        %p.content_section_body
+          Power hour and the food - most importantly, the bubbling water. I'm also glad I got the chance to attend the series B party, it was super awesome. It was also cool to join a photo sharing company, not as a user but as someone who can actually make the things that people use.
+        %p.content_section_body.bold
+          What are you doing in 10 years?
+        %p.content_section_body
+          Working somewhere, maybe 500px. Maybe in 10 years I'll be in the valley, having my own startup. But I have no idea how to start a startup right now.
+      .content_section_separator
+      .content_section_person
+        %img.content_section_image.small(src="/images/issues/sep2015/furqan.jpg")
+        .content_section_profile
+          %span.content_section_name
+            Furqan Qureshi
+          %span.content_section_subtitle
+            Platform Team
+        %p.content_section_body.bold
+          Favourite thing about 500px
+        .content_section_table.pull.right
+          .content_section_table_row
+            %span.content_section_table_header
+              School
+            %span.content_section_table_body
+              University of Waterloo
+          .content_section_table_row
+            %span.content_section_table_header
+              Program
+            %span.content_section_table_body
+              Software Engineering
+          .content_section_table_row
+            %span.content_section_table_header
+              Year
+            %span.content_section_table_body
+              Three
+        %p.content_section_body
+          I like the fact that it's not monotonous. Every day you don't really know what you can expect. I work on the platform team and sometimes things will break or parts of the system will go down, and Kevin's siren will go off. I like the thrill of solving problems like that that need to be addressed right away. I also like that I got to work on things that affected many users.
+        %p.content_section_body.bold
+          What are you doing in 10 years?
+        %p.content_section_body
+          I'd like to work on an idea of my own, maybe a little after I graduate. I don't want to be an entrepreneur for the shit of it, or work on a startup for the shit of it. I want to address meaningful problems. i don't know what that is yet but on my way, I'm developing skills, and just exploring.
+      .content_section_separator
+      .content_section_person
+        %img.content_section_image.small(src="/images/issues/sep2015/ana.jpg")
+        .content_section_profile
+          %span.content_section_name
+            Anastasia Santasheva
+          %span.content_section_subtitle
+            Product Team
+        %p.content_section_body.bold
+          Favourite thing about 500px
+        .content_section_table.pull.right
+          .content_section_table_row
+            %span.content_section_table_header
+              School
+            %span.content_section_table_body
+              University of Waterloo
+          .content_section_table_row
+            %span.content_section_table_header
+              Program
+            %span.content_section_table_body
+              Systems Design Engineering
+          .content_section_table_row
+            %span.content_section_table_header
+              Year
+            %span.content_section_table_body
+              Three
+        %p.content_section_body
+          Geez, there's so much. The hack weekend is turning out to be really fun. Akbar and I are working on a really cool project - he calls it censorship but it's like being a hooligan about search terms and finding a cool way to troll people about their inappropriate search terms.
+        %p.content_section_body
+          Also, being able to work with a lot of data and things that are directly in contact with the user are cool. Not necessarily the app or the features, but things that directly influence KPIs. You get to stay really in touch with how we're making money, what's really a burning problem, why are uploads slacking. YOu feel the constant urge when you don't see the numbers change each week - you feel it in your heart, like "oh no I need to fix this!".
+        %p.content_section_body.bold
+          What are you doing in 10 years?
+        %p.content_section_body
+          I don't even know what I'm doing in four months.
+        %p.content_section_body
+          When I was in high school, I thought, okay, I'm going to go down the tech route and get a lot of technical experience. But I have too many product opinions to be a developer, so I thought I'll do some combination of design and product, but know how it works by having a development background.
+        %p.content_section_body
+          But I found I've gotten really pulled into and excited about dev and I really like building things... So I don't know, maybe a growth hacker of sorts? Maybe in a small to medium company? Maybe I'll go down the product management route. Hopefully Toronto, or maybe SF. Maybe here. That would be fun.
+      .content_section_separator
+      .content_section_person
+        %img.content_section_image.small(src="/images/issues/sep2015/julian.jpg")
+        .content_section_profile
+          %span.content_section_name
+            Julian Villella
+          %span.content_section_subtitle
+            Mobile Team
+        %p.content_section_body.bold
+          Favourite thing about 500px
+        .content_section_table.pull.right
+          .content_section_table_row
+            %span.content_section_table_header
+              School
+            %span.content_section_table_body
+              Mohawk College
+          .content_section_table_row
+            %span.content_section_table_header
+              Program
+            %span.content_section_table_body
+              Software Development
+          .content_section_table_row
+            %span.content_section_table_header
+              Year
+            %span.content_section_table_body
+              Three
+        %p.content_section_body
+          Probably being in the darkroom busting out the final few weeks of our last release for v4 iOS and tackling problems with the rest of the team. It was nice getting to know each other and doing working on  challenges.
+        %p.content_section_body
+          The culture is awesome, the people are awesome - so much talent in one room is exciting. It's always an honour to be with the mobile team and to learn from them.
+        %p.content_section_body.bold
+          What are you doing in 10 years?
+        %p.content_section_body
+          I'll probably be either working at a startup or founding a startup, maybe as the CTO. I like the technical side of things, but I also enjoy being at the top <i>[laughs maniacally]</i>.
+    .content_section.section_four
+      %h2.content_section_heading
+        Just married
+      %p.content_section_body
+        As Andy frequently says - we owe so much to our significant others for their continued support, as work can sometimes take away from the time we can spend with them.
+      %p.content_section_body
+        This past month, two of our friends got married to their lovely significant others. On behalf of everyone at 500px, we wish them a lifetime of happiness.
+      .content_section_wedding
+        %img.content_section_wedding_photo(src="/images/issues/sep2015/janet.jpg")
+        .content_section_wedding_info
+          %span.content_section_wedding_name
+            Janet & John
+          %span.content_section_wedding_date
+            August 1st, 99 Sudbury, Toronto
+          %p.content_section_wedding_text.bold
+            About John
+          %p.content_section_wedding_text
+            John is a math / computer science / robotics teacher. He likes to eat and has to patiently wait for me to take pictures of what we cook and eat.
+      .content_section_separator
+      .content_section_wedding
+        %img.content_section_wedding_photo(src="/images/issues/sep2015/michael.jpg")
+        .content_section_wedding_info
+          %span.content_section_wedding_name
+            Michael & Aurore
+          %span.content_section_wedding_date
+            August 15th, Willistead Manor, Windsor
+          %p.content_section_wedding_text.bold
+            About Aurore
+          %p.content_section_wedding_text
+            Aurore is French - directly from France, not the Quebec pseudo-kind. She's a fellow computer scientist who enjoys dancing and playing the violin.
+    .thankyou_section
+      %h2.content_section_heading.thanks
+        Thank you
+      %p.content_section_body.center
+        Special thanks to Vova for being Vova, Hailey for the editing, David for the photography, Lorena, Ling, Furqan, Anastasia, Julian, Janet, and Mike for being great interviewees, Adam for the design feedback, and most importantly, the weekend hackathon crew for the moral support.
 
 
 
