@@ -238,11 +238,26 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
     color: $action-grey
     margin: 20px 0
 
+  .intro_section
+    max-width: 1040px
+    padding: 80px 20px
+    margin: 0 auto
+    border-top: 1px solid $light-grey-secondary
+
   .content_section
     max-width: 1040px
     padding: 80px 20px
     margin: 0 auto
     border-top: 1px solid $light-grey-secondary
+    // style tombstones for last p in each content section
+    .content_section_body
+      &:last-of-type:after
+        content: ""
+        display: inline-block
+        margin-left: 3px
+        width: 8px
+        height: 8px
+        background-color: #000
 
   .thankyou_section
     padding: 100px 20px
@@ -256,6 +271,14 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
     color: #000
     &.thanks
       margin-bottom: 20px
+    &.with_subheading
+      margin-bottom: 10px
+
+  .content_section_subheading
+    display: inline-block
+    font-size: 20px
+    color: $action-grey
+    margin-bottom: 60px
 
   .content_section_separator
     max-width: 100px
@@ -269,10 +292,16 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
     margin: 0 auto 20px auto
     color: #000
     text-align: left
+    a
+      color: inherit
+      font-weight: inherit
+      text-decoration: underline
     &.center
       text-align: center
     &.bold
       font-weight: bold
+    &.extra_margin
+      margin-bottom: 40px
 
   .content_section_masthead
     margin-top: 60px
@@ -294,6 +323,8 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
       margin-bottom: 20px
     &.pull
       max-width: 420px
+      &.portrait
+        max-width: 340px
       &.left
         margin: 0 20px 20px 0
         float: left
@@ -346,6 +377,10 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
   .content_section_table_body
     display: block
     font-size: 16px
+    a
+      color: inherit
+      text-decoration: underline
+      cursor: pointer
 
   .content_section_person
     padding: 60px 0
@@ -482,6 +517,10 @@ h1, h2, h3, h4, h5, span, p, a, blockquote, em
     background-image: url('/images/swipe.svg')
     background-position: center
     background-size: contain
+  .page_home
+    &.ready_for_hover
+      .issue
+        transition: left 1s cubic-bezier(0.29, 0.9, 0.36, 1), transform 1s cubic-bezier(0.11, 0.82, 0.32, 1), opacity 1s cubic-bezier(0.11, 0.82, 0.32, 1), box-shadow 0.5s cubic-bezier(0.29, 0.9, 0.36, 1)
 
 @media only screen and (max-width: 700px)
   .page_issue

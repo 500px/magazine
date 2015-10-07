@@ -57,6 +57,8 @@ magazineStand = ->
       shiftRight()
     else if event.keyCode == 39 # right
       shiftLeft()
+    else if event.keyCode == 13 # enter key
+      $('[data-position="0"]').click()
 
   $('.controls_arrow.left').on 'click', ->
     shiftRight()
@@ -64,7 +66,13 @@ magazineStand = ->
   $('.controls_arrow.right').on 'click', ->
     shiftLeft()
 
-  hammer = new Hammer(document.body)
+  delete Hammer.defaults.cssProps.userSelect
+
+  hammerOptions =
+    dragLockToAxis: true
+    dragBlockHorizontal: true
+
+  hammer = new Hammer(document.body, hammerOptions)
   hammer.on 'swipeleft swiperight', (ev) ->
     if ev.type == 'swipeleft'
       shiftLeft()
