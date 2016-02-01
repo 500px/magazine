@@ -1,9 +1,13 @@
 issues:
 -
   position: '0'
+  number: '3'
+  id: 'jan2016'
+-
+  position: '-1'
   number: '2'
   id: 'oct2015'
 -
-  position: '-1'
+  position: '-2'
   number: '1'
   id: 'sep2015'
